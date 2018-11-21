@@ -9,10 +9,10 @@ class FoodAdmin(admin.ModelAdmin):
     list_filter = ('create_date',)
     search_fields = ('name', 'description', 'create_date',)
 
+@admin.register(Order) #it is like admin.site.register(Order, OrderAdmin)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('food', 'user', 'date')
     list_filter = ('user', 'date')
     search_fields = ('user',)
 
 admin.site.register(Food, FoodAdmin)
-admin.site.register(Order, OrderAdmin)
